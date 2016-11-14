@@ -1,4 +1,4 @@
-# Music Fall 2016
+s# Music Fall 2016
 
 ##Starter code for ASP.NET Core MVC assignment
 
@@ -20,7 +20,7 @@ Then use this command:
 
 To add your own migration, use
 
-    PM> dotnet ef migration add myupdate
+    PM> dotnet ef migrations add myupdate
 
 
 Note that `myupdate` is a name that identifies the migration. Pick any name that is self-descriptive of what the migration is intended to do.
