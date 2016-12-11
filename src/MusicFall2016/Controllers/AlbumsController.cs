@@ -4,7 +4,6 @@ using MusicFall2016.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace MusicFall2016.Controllers
 {
@@ -16,11 +15,29 @@ namespace MusicFall2016.Controllers
         {
             _context = context;
         }
-        // GET: /<controller>/
+
         public IActionResult Index()
         {
-            var albums =  _context.Albums.ToList();
+            var albums = _context.Albums.ToList();
             return View(albums);
+        }
+
+        public IActionResult createAlbum()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult createAlbum(Album album)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Albums.Add(album);
+                _context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View();
         }
     }
 }
